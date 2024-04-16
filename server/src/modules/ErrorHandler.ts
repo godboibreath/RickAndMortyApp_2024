@@ -1,13 +1,15 @@
-import Logger from './logger.module';
+import Logger from './Logger';
 
 class ErrorHandler {
     private logService: string;
+
     constructor() {
         this.logService = 'ErrorHandler';
     }
-    handleError(error: Error, service?: string) {
+
+    public handleError = (error: Error, service?: string): void => {
         Logger.error(error.message, service ?? this.logService);
-    }
+    };
 }
 
 export default new ErrorHandler();
